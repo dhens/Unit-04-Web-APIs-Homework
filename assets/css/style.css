@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.start-page-text {
+#start-page-text {
     text-align: center;
     margin: 0 auto;
     max-width: 640px;
@@ -11,13 +11,4 @@
 
 .start-page-text h1{
     font-size: xxx-large;
-}
-
-.navbar a{
-    text-align: left;
-}
-.navbar.timer{
-    text-align: right;
-    display: flex;
-    justify-content: space-between;
 }
