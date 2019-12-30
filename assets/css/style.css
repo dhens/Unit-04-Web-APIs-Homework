@@ -9,6 +9,20 @@
     margin-top: 20vh;
 }
 
-.start-page-text h1{
+#start-page-text h1{
     font-size: xxx-large;
+}
+
+#start-page-text h2{
+    font-size: xx-large;
+    text-align: left;
+}
+
+#start-page-text p {
+    font-size: larger;
+}
+
+#start-page-text #answer-button {
+    display: flex;
+    flex-direction: column;
 }

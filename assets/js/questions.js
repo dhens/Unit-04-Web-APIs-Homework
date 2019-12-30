@@ -1,3 +1,6 @@
+console.log("Successfully loaded questions.js")
+
+// These are objects within an array called questions - questions[0].title, questions[1].choices
 var questions = [
     {
       title: "Commonly used data types DO NOT include:",
@@ -11,4 +14,5 @@ var questions = [
     },
     ///etc.
   ];
+
   
