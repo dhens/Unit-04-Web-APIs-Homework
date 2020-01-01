@@ -4,11 +4,9 @@ console.log("Successfully loaded quiz.js");
 const startPageText = document.getElementById("start-page-text");
 const startButton = document.getElementById("start-quiz-button");
 
-// Define iteration counters (i, ii) for renderTitle and renderAnswerButtons's parameter arguments
-// We later update the values of both from within each function using titleIndex++ and ii++ respectively 
+// Define iteration counter (i) for renderTitle and renderAnswerButtons's parameter arguments
+// We later update the value of it from within the renderAnswerButtons function using i++ and returning it's value  
 let i = 0;
-let ii = 0;
-
 
 startButton.addEventListener("click", function() {
     console.log("Start Quiz button clicked");
@@ -28,7 +26,7 @@ answerButtons.addEventListener("click", function() {
     event.preventDefault();
     if(event.target.matches("button")) {
         renderTitle(i);
-        renderAnswerButtons(i, ii);
+        renderAnswerButtons(i);
         console.log("answer button has been clicked")
 
     }
@@ -49,7 +47,6 @@ answerButtons.addEventListener("click", function() {
         qTitleElement.appendChild(qTitleText);                                  
         startPageText.appendChild(qTitleElement);
         console.log("Rendered title: " + qTitle);
-        titleIndex++;
     }
 
     function renderAnswerButtons(titleIndex, btnChoiceIndex) {
