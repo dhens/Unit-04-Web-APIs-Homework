@@ -2,6 +2,15 @@
     box-sizing: border-box;
 }
 
+button {
+    background-color: purple;
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    color: white;
+}
+
 #start-page-text {
     text-align: center;
     margin: 0 auto;
@@ -23,6 +32,7 @@
 }
 
 #start-page-text #answer-button {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    margin-top: 15px;
+    text-align: center;
 }
