@@ -70,36 +70,31 @@ function currentAnswer(titleIndex) {
     return answerKeyObj;
 }
 
-function nextQuestion(callback) {
-    debugger;
-
-    if (i != questions.length ) {
+function nextQuestion() {
+    // If the iteration count is not equal to the number of questions in our list, then 
+    if (i != questions.length) {
         renderTitle(i);
         renderAnswerButtons(i);
         let answerKeyObj =  currentAnswer(i);
         let answerButtons = document.getElementById("answer-buttons");
 
-            answerButtons.addEventListener("click", function() {
-                if(event.target.matches("button")) {
-                    console.log("answer button has been clicked")
-
-                    if(event.target.innerHTML !== answerKeyObj) {
-                        renderTitle(i);
-                        renderAnswerButtons(i);
-                        let answerKeyObj =  currentAnswer(i);
-                        alert("Wrong answer!");
-                    }
-                    else{
-                        renderTitle(i);
-                        renderAnswerButtons(i);
-                        let answerKeyObj =  currentAnswer(i);
-                        alert("Correct answer!");
-                    }
+        answerButtons.addEventListener("click", function() {
+            let selectedButton = event.target;
+            if(selectedButton.matches("button")) {
+                console.log("A button has been clicked")
+                if(selectedButton.innerText !== answerKeyObj) {
+                    alert("Wrong answer!");
+                    nextQuestion();
                 }
-            });
+                else{
+                    alert("Correct answer!");
+                    nextQuestion();
+                }
+            }
+        });
 
     }else{
-        
+        document.write("Game finished!")
         // RUN finishedGame();
         
         }
