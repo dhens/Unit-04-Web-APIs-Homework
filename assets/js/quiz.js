@@ -1,12 +1,12 @@
 // Declare locations
 const startPageText = document.getElementById("start-page-text");
 const startButton = document.getElementById("start-quiz-button");
-let answerKeyObj;
+
 // Define iteration counter (i) for renderTitle and renderAnswerButtons's parameter arguments
 // We later update the value of it from within the renderAnswerButtons function using i++ and returning it's value  
 let i = 0;
 
-startButton.addEventListener("click", function() {
+startButton.addEventListener("click", function(callback) {
     console.log("Start Quiz button clicked");
     // BEGIN TIMER HERE
 
@@ -15,29 +15,9 @@ startButton.addEventListener("click", function() {
         startPageText.firstChild.remove();
     }
 
-    renderTitle(i);
-    renderAnswerButtons(i);
-    let answerKeyObj =  currentAnswer(i);
-    const answerButtons = document.getElementById("answer-buttons");
+    nextQuestion();
 
-answerButtons.addEventListener("click", function() {
-    if(event.target.matches("button")) {
-        console.log("answer button has been clicked")
-
-        if(event.target.innerHTML !== answerKeyObj) {
-            renderTitle(i);
-            renderAnswerButtons(i);
-            let answerKeyObj =  currentAnswer(i);
-            alert("Wrong answer!");
-        }
-        else{
-            renderTitle(i);
-            renderAnswerButtons(i);
-            let answerKeyObj =  currentAnswer(i);
-            alert("Correct answer!");
-        }
-    }
-});
+    
 });
 
 function renderTitle(titleIndex) {
@@ -61,7 +41,7 @@ function renderAnswerButtons(titleIndex) {
     let answerBtnDiv = document.createElement("DIV"); 
     answerBtnDiv.setAttribute("id", "answer-buttons");
     startPageText.appendChild(answerBtnDiv);
-    const answerButtons = document.getElementById("answer-buttons");
+    let answerButtons = document.getElementById("answer-buttons");
 
     // Loop through each index in the current object's "choices" array and create a button with text from the index
     for (let choiceIterationCount = 0; choiceIterationCount < questions[titleIndex].choices.length; choiceIterationCount++) {
@@ -89,3 +69,38 @@ function currentAnswer(titleIndex) {
     let answerKeyObj = questions[titleIndex - 1].answer;
     return answerKeyObj;
 }
+
+function nextQuestion(callback) {
+    debugger;
+
+    if (i != questions.length ) {
+        renderTitle(i);
+        renderAnswerButtons(i);
+        let answerKeyObj =  currentAnswer(i);
+        let answerButtons = document.getElementById("answer-buttons");
+
+            answerButtons.addEventListener("click", function() {
+                if(event.target.matches("button")) {
+                    console.log("answer button has been clicked")
+
+                    if(event.target.innerHTML !== answerKeyObj) {
+                        renderTitle(i);
+                        renderAnswerButtons(i);
+                        let answerKeyObj =  currentAnswer(i);
+                        alert("Wrong answer!");
+                    }
+                    else{
+                        renderTitle(i);
+                        renderAnswerButtons(i);
+                        let answerKeyObj =  currentAnswer(i);
+                        alert("Correct answer!");
+                    }
+                }
+            });
+
+    }else{
+        
+        // RUN finishedGame();
+        
+        }
+    }

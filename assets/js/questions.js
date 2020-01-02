@@ -17,14 +17,14 @@ var questions = [
     },
     {
       title: "The link element must go inside the ____ section of an HTML document or page.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
+      choices: ["header", "footer", "body", "div"],
+      answer: "header"
     },
     {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+      title: "What is the correct syntax for referring to an external script called xxx.js?",
+      choices: ["<script name='xxx.js'>", "<script href='xxx.js'>", "<script src='xxx.js'>", "<script rel='xxx.js'>"],
       answer: "parentheses"
-    },
+    }
     ///etc.
   ];
 
