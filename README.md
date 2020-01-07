@@ -11,7 +11,7 @@ Production page: https://dhens.github.io/Unit-04-Web-APIs-Homework/
 * A javascript file (questions.js) that stores our questions, answers, and correct answer values
 
 ## Known Issues
-* There's too much DOM manipulation. This caused headaches with defining where an element was in the DOM when it hadn't been created yet. It also led to too much HTMl being added into the DOM that could have easily been fixed by putting these tags and elements into the HTML before-hand, and simply calling it when neccessary as it is always accessible.
+* There's too much DOM manipulation. This caused headaches with defining where an element was in the DOM when it hadn't been created yet. The excess DOM manipulation that could have easily been fixed by putting these tags and elements into the HTML before-hand, and simply calling it when neccessary as it is always accessible.
 * I used global variables due to poor planning and ignorance about nested functions, and returns.
 
 ## What I Learned:
