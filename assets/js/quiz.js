@@ -212,17 +212,20 @@ function enterScoreScreen() {
     });
 }
 
+// go through each item in localstorage and make an li for it and display on page
 function renderHighscores() {
-    // Retrieve
+    let orderedList = document.createElement("ol");
+    orderedList.setAttribute("id", "ordered-list");
+    startPageText.appendChild(orderedList);
     for (let i = 0; i < localStorage.length; i++){
+        let orderedListLocation = document.getElementById("ordered-list");
         console.log("i val: " + i);
-        // do something with localStorage.getItem(localStorage.key(i));
         let currentKey = Object.entries(localStorage); 
         let currentScore = localStorage.getItem(localStorage.key(i));
         let highScoreElement = document.createElement("li");
         let highscoreText = document.createTextNode(currentKey[i]);
         highScoreElement.appendChild(highscoreText);
-        startPageText.appendChild(highScoreElement);
+        orderedListLocation.appendChild(highScoreElement);
     }
 }
 
@@ -264,6 +267,20 @@ function viewHighScoresScreen() {
         viewHighScoresScreen();
     });
 }
+
+// function sortLocalStorage(){
+//     debugger;
+//     if(localStorage.length > 0){
+//        localStorageArr = [];
+//        for (let i = 0; i < localStorage.length; i++){
+//            localStorageArr[i] = localStorage.key(i)+localStorage.getItem(localStorage.key(i));
+//        }
+//     }
+//     let sortedArray = localStorageArr.sort(function(a, b) {
+//         return b - a
+//     }); 
+//     return sortedArray;
+//  }
 
 function gameOver() {
     clearGameArea();

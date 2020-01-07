@@ -28,6 +28,9 @@ button {
     display: flex;
 }
 
+ol{
+    padding: 25px;
+}
 p {
   text-align: left;
 }
