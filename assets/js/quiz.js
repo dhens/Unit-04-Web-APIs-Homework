@@ -194,6 +194,7 @@ function enterScoreScreen() {
     nameInput = document.getElementById("name-input");
     submitButton = document.getElementsByClassName("btn btn-primary col-md-3")[0];
 
+
     renderHighscores();
 
     // Listener event for when we submit our name to the highscore list
@@ -208,11 +209,11 @@ function enterScoreScreen() {
         li.textContent = nameInput.value + " - " + timer;
         startPageText.appendChild(li);
 
-});
+    });
 }
 
 function renderHighscores() {
-    // Retrieve    
+    // Retrieve
     for (let i = 0; i < localStorage.length; i++){
         console.log("i val: " + i);
         // do something with localStorage.getItem(localStorage.key(i));
@@ -224,6 +225,7 @@ function renderHighscores() {
         startPageText.appendChild(highScoreElement);
     }
 }
+
 // To view the highscores, but not update them like enterScoreScreen
 function viewHighScoresScreen() {
     clearGameArea();
@@ -232,7 +234,35 @@ function viewHighScoresScreen() {
     let highScoreText = document.createTextNode("Highscores");                      
     highScoreElement.appendChild(highScoreText);                                  
     startPageText.appendChild(highScoreElement);
-    
+
+    let btnElement = document.createElement("button");
+    let btnText = document.createTextNode("Go Back");                          
+    btnElement.setAttribute("class", "btn btn-primary");
+    btnElement.setAttribute("id", "go-back-btn")
+    btnElement.appendChild(btnText);
+    startPageText.appendChild(btnElement);
+
+    let clearBtnEl = document.createElement("button");
+    let clearBtntext = document.createTextNode("Clear");                          
+    clearBtnEl.setAttribute("class", "btn btn-warning");
+    clearBtnEl.setAttribute("id", "go-back-btn")
+    clearBtnEl.appendChild(clearBtntext);
+    startPageText.appendChild(clearBtnEl);
+
+    clearButton = document.getElementsByClassName("btn btn-warning")[0];
+    let goBackButton = document.getElementById("go-back-btn")
+
+    goBackButton.addEventListener("click", function() {
+        location.reload();
+    });
+
+    clearButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        console.log("CLEAR BUTTON EVENT")
+        localStorage.clear();
+        renderHighscores();
+        viewHighScoresScreen();
+    });
 }
 
 function gameOver() {

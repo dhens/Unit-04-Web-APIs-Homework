@@ -23,6 +23,11 @@ button {
     height: 60px; /* Set the fixed height of the footer here */
 }
 
+/* Aligns go back button to the left of screen */
+#go-back-btn {
+    display: flex;
+}
+
 p {
   text-align: left;
 }
