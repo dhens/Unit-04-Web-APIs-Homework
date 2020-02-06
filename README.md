@@ -1,4 +1,4 @@
-# Unit-04-Javascript-Quiz-Game
+# Code Quiz
 
 This is a web app that serves the user a quiz dynamically based off an external file that holds the questions, the possible answers, and the correct answer.
 Production page: https://dhens.github.io/Unit-04-Web-APIs-Homework/ 
